@@ -4,6 +4,7 @@
  */
 package com.mycompany.crudmysql;
 import java.time.*;
+import java.sql.Timestamp;
 
 /**
  *
@@ -16,11 +17,16 @@ public class Cliente
     String apellidoPaterno;
     String apellidoMaterno;
     Boolean isDeleted;
-    LocalDateTime fechaHoraRegistro;
+    Timestamp fechaHoraRegistro;
 
     public int getIdCliente() {
         return idCliente;
     }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
+    }
+    
 
     public String getNombre() {
         return nombre;
@@ -54,13 +60,19 @@ public class Cliente
         this.isDeleted = isDeleted;
     }
 
-    public LocalDateTime getFechaHoraRegistro() {
+    public Timestamp getFechaHoraRegistro() {
         return fechaHoraRegistro;
     }
 
-    public void setFechaHoraRegistro(LocalDateTime fechaHoraRegistro) {
+    public void setFechaHoraRegistro(Timestamp fechaHoraRegistro) {
         this.fechaHoraRegistro = fechaHoraRegistro;
     }
     
+    public void createCliente(String nombre, String apellidoPaterno, String apellidoMaterno, LocalDateTime fechaHoraRegistro)
+    {
+        setNombre(nombre);
+        setApellidoPaterno(apellidoPaterno);
+        
+    }
     
 }
