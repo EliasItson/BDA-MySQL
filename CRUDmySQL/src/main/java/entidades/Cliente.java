@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.crudmysql;
+package entidades;
 import java.time.*;
 import java.sql.Timestamp;
 
@@ -66,13 +66,6 @@ public class Cliente
 
     public void setFechaHoraRegistro(Timestamp fechaHoraRegistro) {
         this.fechaHoraRegistro = fechaHoraRegistro;
-    }
-    
-    public void createCliente(String nombre, String apellidoPaterno, String apellidoMaterno, LocalDateTime fechaHoraRegistro)
-    {
-        setNombre(nombre);
-        setApellidoPaterno(apellidoPaterno);
-        
     }
     
 }

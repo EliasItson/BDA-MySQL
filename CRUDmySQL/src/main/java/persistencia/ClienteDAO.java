@@ -2,12 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.crudmysql;
+package persistencia;
 
 /**
  *
  * @author Ryzen 5
  */
+import entidades.Cliente;
 import java.sql.*;
 import java.sql.Timestamp;
 import java.util.ArrayList;

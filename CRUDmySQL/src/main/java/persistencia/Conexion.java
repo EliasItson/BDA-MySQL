@@ -1,7 +1,8 @@
-package com.mycompany.crudmysql;
+package persistencia;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 /**
  *
  * @author Ryzen 5
@@ -18,9 +19,9 @@ public class Conexion
             conexion = DriverManager.getConnection("jdbc:mysql://localhost/netbeans","root" ,"1234");
             System.out.println("Conexion exitosa");
         }
-        catch (Exception e)
+        catch (SQLException e)
         {
-            System.out.println("Error al conectar" + e.toString());
+            e.printStackTrace();
         }
         return conexion;
     }
