@@ -3,26 +3,20 @@ package persistencia;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-/**
- *
- * @author Ryzen 5
- */
-public class Conexion 
-{
-    Connection conexion;
 
-    public Connection conectar()
+public class Conexion implements IConexion
+{
+    
+    final String SERVER = "localhost";
+    final String BASE_DATOS = "netbeans";
+    private final String CADENA_CONEXION = "jdbc:mysql://" + SERVER + "/" + BASE_DATOS;
+    final String USUARIO = "root";
+    final String CONTRASEÑA = "1234";
+    
+    @Override
+    public Connection crearConexion() throws SQLException 
     {
-        try
-        {
-            
-            conexion = DriverManager.getConnection("jdbc:mysql://localhost/netbeans","root" ,"1234");
-            System.out.println("Conexion exitosa");
-        }
-        catch (SQLException e)
-        {
-            e.printStackTrace();
-        }
-        return conexion;
+        Connection conexion = DriverManager.getConnection(CADENA_CONEXION, USUARIO, CONTRASEÑA);
+        return conexion;   
     }
 }

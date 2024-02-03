@@ -1,33 +1,26 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package persistencia;
 
-/**
- *
- * @author Ryzen 5
- */
 import entidades.Cliente;
 import java.sql.*;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClienteDAO {
-    private Conexion conexion = new Conexion();
-    private Connection connection;
+public class ClienteDAO implements IClienteDAO
+{
+    private IConexion conexion;
 
-    public ClienteDAO() {
-        // Initialize the database connection
-        connection = conexion.conectar();
+    public ClienteDAO(IConexion conexion) 
+    {
+        this.conexion = conexion;
     }
-
-    public List<Cliente> getAllClientes() {
+    @Override
+    public List<Cliente> getAllClientes() 
+    {
         List<Cliente> clientes = new ArrayList<>();
         try {
+            Connection connection = this.conexion.crearConexion();
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM clientes");
 
             while (resultSet.next()) {
                 Cliente cliente = new Cliente();
@@ -48,9 +41,11 @@ public class ClienteDAO {
         }
         return clientes;
     }
-
-    public void addCliente(Cliente cliente) {
+    @Override
+    public void addCliente(Cliente cliente) 
+    {
         try {
+            Connection connection = this.conexion.crearConexion();
             PreparedStatement preparedStatement = connection.prepareStatement(
                 "INSERT INTO clientes (nombre, apellidoPaterno, apellidoMaterno, fechaHoraRegistro) VALUES (?, ?, ?, ?)"
             );
@@ -60,6 +55,37 @@ public class ClienteDAO {
             preparedStatement.setTimestamp(4, cliente.getFechaHoraRegistro());
             preparedStatement.executeUpdate();
             preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    @Override
+    public void updateCliente(Cliente cliente) 
+    {
+        try
+        {
+            Connection connection = this.conexion.crearConexion();
+            PreparedStatement statement = connection.prepareStatement("UPDATE clientes SET nombre = ?, apellidoPaterno = ?, apellidoMaterno = ? WHERE idCliente = ?");
+            statement.setString(1, cliente.getNombre());
+            statement.setString(2, cliente.getApellidoPaterno());
+            statement.setString(3, cliente.getApellidoMaterno());
+            statement.setInt(4, cliente.getIdCliente());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @Override
+    public void deleteCliente(int idCliente) 
+    {
+        try
+        {
+            Connection connection = this.conexion.crearConexion();
+            PreparedStatement statement = connection.prepareStatement("UPDATE clientes SET isDeleted = ? WHERE idCliente = ?");
+            statement.setBoolean(1, true);
+            statement.setInt(2, idCliente);
+            statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
