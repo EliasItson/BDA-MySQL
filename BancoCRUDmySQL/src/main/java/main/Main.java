@@ -1,14 +1,14 @@
-package com.mycompany.crudmysql;
+package main;
 
-import persistencia.Conexion;
-import persistencia.IConexion;
+import dao.ConexionBD;
+import dao.IConexionBD;
 import java.sql.SQLException;
 
 public class Main 
 {
     public static void main(String[] args) 
     {
-        IConexion conexion = new Conexion();
+        IConexionBD conexion = new ConexionBD();
         try
         {
             conexion.crearConexion();
