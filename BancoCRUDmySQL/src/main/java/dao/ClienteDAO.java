@@ -48,7 +48,8 @@ public class ClienteDAO implements IClienteDAO
     @Override
     public void addCliente(Cliente cliente) 
     {
-        try {
+        try 
+        {
             Connection connection = this.conexion.crearConexion();
             PreparedStatement preparedStatement = connection.prepareStatement(
                 "INSERT INTO clientes (nombre, domicilio, fecha_nacimiento, edad) VALUES (?, ?, ?, ?)"
@@ -59,7 +60,8 @@ public class ClienteDAO implements IClienteDAO
             preparedStatement.setInt(4, cliente.getEdad());
             preparedStatement.executeUpdate();
             preparedStatement.close();
-        } catch (SQLException e) {
+        } catch (SQLException e) 
+        {
             e.printStackTrace();
         }
     }
@@ -76,7 +78,8 @@ public class ClienteDAO implements IClienteDAO
             statement.setInt(4, cliente.getEdad());
             statement.setInt(5, cliente.getClienteID());
             statement.executeUpdate();
-        } catch (SQLException e) {
+        } catch (SQLException e) 
+        {
             e.printStackTrace();
         }
     }
@@ -91,7 +94,8 @@ public class ClienteDAO implements IClienteDAO
             statement.setBoolean(1, true);
             statement.setInt(2, clienteID);
             statement.executeUpdate();
-        } catch (SQLException e) {
+        } catch (SQLException e) 
+        {
             e.printStackTrace();
         }
     }
