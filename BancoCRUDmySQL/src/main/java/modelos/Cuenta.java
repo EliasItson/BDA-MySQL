@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 public class Cuenta 
 {
     private int cuentaID;
-    private Cliente cliente;
+    private int cliente;
     private int numeroCuenta;
     private double saldo;
     private Timestamp fechaApertura;
@@ -19,11 +19,11 @@ public class Cuenta
         this.cuentaID = cuentaID;
     }
 
-    public Cliente getCliente() {
+    public int getCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(int cliente) {
         this.cliente = cliente;
     }
 

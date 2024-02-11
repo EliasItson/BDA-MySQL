@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 public class Operacion 
 {
     private int operacionID;
-    private Cliente cliente;
+    private int cliente;
     private String tipoOperacion;
     private Timestamp fechaOperacion;
     private boolean isDeleted;
@@ -18,11 +18,11 @@ public class Operacion
         this.operacionID = operacionID;
     }
 
-    public Cliente getCliente() {
+    public int getCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(int cliente) {
         this.cliente = cliente;
     }
 
@@ -42,7 +42,7 @@ public class Operacion
         this.fechaOperacion = fechaOperacion;
     }
 
-    public boolean isIsDeleted() {
+    public boolean getIsDeleted() {
         return isDeleted;
     }
 
