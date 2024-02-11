@@ -12,6 +12,7 @@ public class Main
         try
         {
             conexion.crearConexion();
+            System.out.println("Conexion completada");
         }
         catch(SQLException e){
             System.out.println(e.getMessage());

@@ -1,15 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package entidades;
+
 import java.time.*;
 import java.sql.Timestamp;
 
-/**
- *
- * @author Ryzen 5
- */
 public class Cliente 
 {
     int idCliente;
