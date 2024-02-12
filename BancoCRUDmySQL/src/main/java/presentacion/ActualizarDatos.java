@@ -18,6 +18,12 @@ public class ActualizarDatos extends javax.swing.JDialog {
         initComponents();
         this.setResizable(false);
     }
+    
+    public ActualizarDatos(java.awt.Frame parent, String title, boolean modal) {
+        super(parent, title, modal);
+        initComponents();
+        this.setResizable(false);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,6 +44,7 @@ public class ActualizarDatos extends javax.swing.JDialog {
         userLabel3 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -96,20 +103,20 @@ public class ActualizarDatos extends javax.swing.JDialog {
         jPanel1.add(userLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 170, 20));
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 220, -1));
         jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 220, -1));
+        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 220, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 400));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
-        this.setVisible(false);
-        Menu menuObj = new Menu();
-        menuObj.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_loginBtnActionPerformed
 
     private void loginBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtn1ActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_loginBtn1ActionPerformed
 
     /**
@@ -162,6 +169,7 @@ public class ActualizarDatos extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;

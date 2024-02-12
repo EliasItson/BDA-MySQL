@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package presentacion;
+import javax.swing.JDialog;
 
 /**
  *
@@ -37,6 +38,7 @@ public class Menu extends javax.swing.JFrame {
         nombreLabel = new javax.swing.JLabel();
         domicilioTxtArea = new javax.swing.JTextArea();
         fechaLabel = new javax.swing.JLabel();
+        fechaLabel1 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator1 = new javax.swing.JSeparator();
         transfBtn = new javax.swing.JButton();
@@ -114,10 +116,12 @@ public class Menu extends javax.swing.JFrame {
             perInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(perInfoPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(perInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(domicilioTxtArea)
-                    .addComponent(nombreLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(fechaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(perInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(fechaLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(perInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(domicilioTxtArea)
+                        .addComponent(nombreLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(fechaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         perInfoPanelLayout.setVerticalGroup(
@@ -129,7 +133,9 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(domicilioTxtArea, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(fechaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(fechaLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         menuPanel.add(perInfoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, 290, 210));
@@ -188,23 +194,29 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void transfBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transfBtnActionPerformed
-        // TODO add your handling code here:
+        JDialog transferencia = new Transferencia(this, "Transferencia a Cuenta", true);
+        transferencia.setVisible(true);
     }//GEN-LAST:event_transfBtnActionPerformed
 
     private void newCuentaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCuentaBtnActionPerformed
-        // TODO add your handling code here:
+        JDialog abrirCuenta = new AbrirCuenta(this, "Abrir Cuenta Nueva", true);
+        abrirCuenta.setVisible(true);
+        
     }//GEN-LAST:event_newCuentaBtnActionPerformed
 
     private void cancelCuentaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelCuentaBtnActionPerformed
-        // TODO add your handling code here:
+        JDialog cancelarCuenta = new CancelarCuenta(this, "Cancelar Cuenta", true);
+        cancelarCuenta.setVisible(true);
     }//GEN-LAST:event_cancelCuentaBtnActionPerformed
 
     private void depositoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depositoBtnActionPerformed
-        // TODO add your handling code here:
+        JDialog deposito = new Deposito(this, "Deposito a Cuenta Cuenta", true);
+        deposito.setVisible(true);
     }//GEN-LAST:event_depositoBtnActionPerformed
 
     private void updateInfoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateInfoBtnActionPerformed
-        // TODO add your handling code here:
+        JDialog actualizarDatos = new ActualizarDatos(this, "Editar Datos Personales", true);
+        actualizarDatos.setVisible(true);
     }//GEN-LAST:event_updateInfoBtnActionPerformed
 
     /**
@@ -250,6 +262,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton depositoBtn;
     private javax.swing.JTextArea domicilioTxtArea;
     private javax.swing.JLabel fechaLabel;
+    private javax.swing.JLabel fechaLabel1;
     private javax.swing.JLabel headerLabel;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;

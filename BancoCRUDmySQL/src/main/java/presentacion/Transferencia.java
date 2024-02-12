@@ -18,6 +18,12 @@ public class Transferencia extends javax.swing.JDialog {
         initComponents();
         this.setResizable(false);
     }
+    
+    public Transferencia(java.awt.Frame parent, String title, boolean modal) {
+        super(parent, title, modal);
+        initComponents();
+        this.setResizable(false);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -104,16 +110,15 @@ public class Transferencia extends javax.swing.JDialog {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 400));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
-        this.setVisible(false);
-        Menu menuObj = new Menu();
-        menuObj.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_loginBtnActionPerformed
 
     private void loginBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtn1ActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_loginBtn1ActionPerformed
 
     /**
