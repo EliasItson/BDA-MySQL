@@ -11,11 +11,12 @@ package presentacion;
 public class ActualizarDatos extends javax.swing.JDialog {
 
     /**
-     * Creates new form ActualizarDatos
+     * Creates new form AbrirCuenta
      */
     public ActualizarDatos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setResizable(false);
     }
 
     /**
@@ -27,21 +28,89 @@ public class ActualizarDatos extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        userLabel = new javax.swing.JLabel();
+        userLabel1 = new javax.swing.JLabel();
+        userLabel2 = new javax.swing.JLabel();
+        loginBtn = new javax.swing.JButton();
+        loginBtn1 = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        userLabel3 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(70, 73, 75));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        userLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        userLabel.setForeground(new java.awt.Color(180, 180, 180));
+        userLabel.setText("Editar datos personales");
+        jPanel1.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 260, 30));
+
+        userLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        userLabel1.setForeground(new java.awt.Color(180, 180, 180));
+        userLabel1.setText("Fecha de Nacimiento:");
+        jPanel1.add(userLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 170, 20));
+
+        userLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        userLabel2.setForeground(new java.awt.Color(180, 180, 180));
+        userLabel2.setText("Nombre:");
+        jPanel1.add(userLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 140, 20));
+
+        loginBtn.setBackground(new java.awt.Color(77, 79, 81));
+        loginBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        loginBtn.setForeground(new java.awt.Color(180, 180, 180));
+        loginBtn.setText("Realizar Transferencia");
+        loginBtn.setToolTipText("");
+        loginBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 102, 104), 2));
+        loginBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(loginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 160, 30));
+
+        loginBtn1.setBackground(new java.awt.Color(77, 79, 81));
+        loginBtn1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        loginBtn1.setForeground(new java.awt.Color(180, 180, 180));
+        loginBtn1.setText("Regresar");
+        loginBtn1.setToolTipText("");
+        loginBtn1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 102, 104), 2));
+        loginBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginBtn1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(loginBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 160, 30));
+
+        jSeparator1.setBackground(new java.awt.Color(90, 92, 94));
+        jSeparator1.setForeground(new java.awt.Color(120, 122, 124));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 103, 480, 20));
+
+        userLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        userLabel3.setForeground(new java.awt.Color(180, 180, 180));
+        userLabel3.setText("Domicilio");
+        jPanel1.add(userLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 170, 20));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 220, -1));
+        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 220, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
+        this.setVisible(false);
+        Menu menuObj = new Menu();
+        menuObj.setVisible(true);
+    }//GEN-LAST:event_loginBtnActionPerformed
+
+    private void loginBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginBtn1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -69,6 +138,13 @@ public class ActualizarDatos extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(ActualizarDatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -86,5 +162,15 @@ public class ActualizarDatos extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JButton loginBtn;
+    private javax.swing.JButton loginBtn1;
+    private javax.swing.JLabel userLabel;
+    private javax.swing.JLabel userLabel1;
+    private javax.swing.JLabel userLabel2;
+    private javax.swing.JLabel userLabel3;
     // End of variables declaration//GEN-END:variables
 }

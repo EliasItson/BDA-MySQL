@@ -15,6 +15,7 @@ public class SignUp extends javax.swing.JFrame {
      */
     public SignUp() {
         initComponents();
+        this.setResizable(false);
     }
 
     /**
@@ -47,6 +48,7 @@ public class SignUp extends javax.swing.JFrame {
         setTitle("Aplicacion Bancaria");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        signupPanel.setForeground(new java.awt.Color(60, 63, 65));
         signupPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         headerLabel.setFont(new java.awt.Font("Segoe UI", 0, 68)); // NOI18N
@@ -109,6 +111,7 @@ public class SignUp extends javax.swing.JFrame {
         getContentPane().add(signupPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 800));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void passPassFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passPassFieldActionPerformed
@@ -116,11 +119,15 @@ public class SignUp extends javax.swing.JFrame {
     }//GEN-LAST:event_passPassFieldActionPerformed
 
     private void registrarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarBtnActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        Login loginObj = new Login();
+        loginObj.setVisible(true);
     }//GEN-LAST:event_registrarBtnActionPerformed
 
     private void cancelarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBtnActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        Login loginObj = new Login();
+        loginObj.setVisible(true);
     }//GEN-LAST:event_cancelarBtnActionPerformed
 
     /**

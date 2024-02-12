@@ -15,6 +15,7 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        this.setResizable(false);
     }
 
     /**
@@ -183,6 +184,7 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().add(menuPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 800));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void transfBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transfBtnActionPerformed

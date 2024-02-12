@@ -3,6 +3,7 @@ package main;
 import dao.ConexionBD;
 import dao.IConexionBD;
 import java.sql.SQLException;
+import presentacion.Login;
 
 public class Main 
 {
@@ -17,5 +18,8 @@ public class Main
         catch(SQLException e){
             System.out.println(e.getMessage());
         }
+        
+        Login loginObj = new Login();
+        loginObj.setVisible(true);
     }   
 }
