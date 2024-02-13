@@ -34,92 +34,93 @@ public class Transferencia extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        userLabel = new javax.swing.JLabel();
-        userLabel1 = new javax.swing.JLabel();
-        userLabel2 = new javax.swing.JLabel();
-        loginBtn = new javax.swing.JButton();
-        loginBtn1 = new javax.swing.JButton();
+        transferenciaPanel = new javax.swing.JPanel();
+        headerLabel = new javax.swing.JLabel();
+        montoLabel = new javax.swing.JLabel();
+        cuenta1Label = new javax.swing.JLabel();
+        transferirBtn = new javax.swing.JButton();
+        regresarBtn = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
-        userLabel3 = new javax.swing.JLabel();
+        cuenta2Label = new javax.swing.JLabel();
         cuenta1Cbx = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        cuenta2TxtField = new javax.swing.JTextField();
+        montoTxtField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(70, 73, 75));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        transferenciaPanel.setBackground(new java.awt.Color(70, 73, 75));
+        transferenciaPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        userLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        userLabel.setForeground(new java.awt.Color(180, 180, 180));
-        userLabel.setText("Cancelacion de Cuenta");
-        jPanel1.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 260, 20));
+        headerLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        headerLabel.setForeground(new java.awt.Color(180, 180, 180));
+        headerLabel.setText("Transferencia");
+        transferenciaPanel.add(headerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 260, 20));
 
-        userLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        userLabel1.setForeground(new java.awt.Color(180, 180, 180));
-        userLabel1.setText("Monto:");
-        jPanel1.add(userLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 170, 20));
+        montoLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        montoLabel.setForeground(new java.awt.Color(180, 180, 180));
+        montoLabel.setText("Monto:");
+        transferenciaPanel.add(montoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 170, 20));
 
-        userLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        userLabel2.setForeground(new java.awt.Color(180, 180, 180));
-        userLabel2.setText("Retirar de cuenta:");
-        jPanel1.add(userLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 140, 20));
+        cuenta1Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cuenta1Label.setForeground(new java.awt.Color(180, 180, 180));
+        cuenta1Label.setText("Retirar de cuenta:");
+        transferenciaPanel.add(cuenta1Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 140, 20));
 
-        loginBtn.setBackground(new java.awt.Color(77, 79, 81));
-        loginBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        loginBtn.setForeground(new java.awt.Color(180, 180, 180));
-        loginBtn.setText("Realizar Transferencia");
-        loginBtn.setToolTipText("");
-        loginBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 102, 104), 2));
-        loginBtn.addActionListener(new java.awt.event.ActionListener() {
+        transferirBtn.setBackground(new java.awt.Color(77, 79, 81));
+        transferirBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        transferirBtn.setForeground(new java.awt.Color(180, 180, 180));
+        transferirBtn.setText("Realizar Transferencia");
+        transferirBtn.setToolTipText("");
+        transferirBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 102, 104), 2));
+        transferirBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginBtnActionPerformed(evt);
+                transferirBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(loginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 160, 30));
+        transferenciaPanel.add(transferirBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 160, 30));
 
-        loginBtn1.setBackground(new java.awt.Color(77, 79, 81));
-        loginBtn1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        loginBtn1.setForeground(new java.awt.Color(180, 180, 180));
-        loginBtn1.setText("Regresar");
-        loginBtn1.setToolTipText("");
-        loginBtn1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 102, 104), 2));
-        loginBtn1.addActionListener(new java.awt.event.ActionListener() {
+        regresarBtn.setBackground(new java.awt.Color(77, 79, 81));
+        regresarBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        regresarBtn.setForeground(new java.awt.Color(180, 180, 180));
+        regresarBtn.setText("Regresar");
+        regresarBtn.setToolTipText("");
+        regresarBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 102, 104), 2));
+        regresarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginBtn1ActionPerformed(evt);
+                regresarBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(loginBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 160, 30));
+        transferenciaPanel.add(regresarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 160, 30));
 
         jSeparator1.setBackground(new java.awt.Color(90, 92, 94));
         jSeparator1.setForeground(new java.awt.Color(120, 122, 124));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 103, 480, 20));
+        transferenciaPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 103, 480, 20));
 
-        userLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        userLabel3.setForeground(new java.awt.Color(180, 180, 180));
-        userLabel3.setText("Transferir a cuenta:");
-        jPanel1.add(userLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 170, 20));
+        cuenta2Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cuenta2Label.setForeground(new java.awt.Color(180, 180, 180));
+        cuenta2Label.setText("Transferir a cuenta:");
+        transferenciaPanel.add(cuenta2Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 170, 20));
 
         cuenta1Cbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5645001236", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(cuenta1Cbx, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 220, -1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 220, -1));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 220, -1));
+        transferenciaPanel.add(cuenta1Cbx, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 220, -1));
+        transferenciaPanel.add(cuenta2TxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 220, -1));
+        transferenciaPanel.add(montoTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 220, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 400));
+        getContentPane().add(transferenciaPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 400));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
+    private void transferirBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferirBtnActionPerformed
         this.dispose();
-    }//GEN-LAST:event_loginBtnActionPerformed
+    }//GEN-LAST:event_transferirBtnActionPerformed
 
-    private void loginBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtn1ActionPerformed
+    private void regresarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarBtnActionPerformed
         this.dispose();
-    }//GEN-LAST:event_loginBtn1ActionPerformed
+    }//GEN-LAST:event_regresarBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,15 +169,15 @@ public class Transferencia extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cuenta1Cbx;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel cuenta1Label;
+    private javax.swing.JLabel cuenta2Label;
+    private javax.swing.JTextField cuenta2TxtField;
+    private javax.swing.JLabel headerLabel;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JButton loginBtn;
-    private javax.swing.JButton loginBtn1;
-    private javax.swing.JLabel userLabel;
-    private javax.swing.JLabel userLabel1;
-    private javax.swing.JLabel userLabel2;
-    private javax.swing.JLabel userLabel3;
+    private javax.swing.JLabel montoLabel;
+    private javax.swing.JTextField montoTxtField;
+    private javax.swing.JButton regresarBtn;
+    private javax.swing.JPanel transferenciaPanel;
+    private javax.swing.JButton transferirBtn;
     // End of variables declaration//GEN-END:variables
 }

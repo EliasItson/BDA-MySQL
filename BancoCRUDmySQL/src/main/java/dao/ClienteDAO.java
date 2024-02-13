@@ -30,7 +30,7 @@ public class ClienteDAO implements IClienteDAO
                 cliente.setClienteID(resultSet.getInt("cliente_id"));
                 cliente.setNombre(resultSet.getString("nombre"));
                 cliente.setDomicilio(resultSet.getString("domicilio"));
-                cliente.setFechaNacimiento(resultSet.getTimestamp("fecha_nacimiento"));
+                cliente.setFechaNacimiento(resultSet.getDate("fecha_nacimiento").toLocalDate());
                 cliente.setEdad(resultSet.getInt("edad"));
                 cliente.setIsDeleted(resultSet.getBoolean("is_deleted"));
                 
@@ -50,16 +50,18 @@ public class ClienteDAO implements IClienteDAO
     @Override
     public void addCliente(Cliente cliente) 
     {
-        try 
+        try(Connection connection = this.conexion.crearConexion()) 
         {
-            Connection connection = this.conexion.crearConexion();
             PreparedStatement preparedStatement = connection.prepareStatement(
-                "INSERT INTO clientes (nombre, domicilio, fecha_nacimiento, edad) VALUES (?, ?, ?, ?)"
+                "INSERT INTO clientes (nombre, domicilio, fecha_nacimiento, edad, user, password, salt) VALUES (?, ?, ?, ?, ?, ?, ?)"
             );
             preparedStatement.setString(1, cliente.getNombre());
             preparedStatement.setString(2, cliente.getDomicilio());
-            preparedStatement.setTimestamp(3, cliente.getFechaNacimiento());
+            preparedStatement.setDate(3, Date.valueOf(cliente.getFechaNacimiento()));
             preparedStatement.setInt(4, cliente.getEdad());
+            preparedStatement.setString(5, cliente.getUser());
+            preparedStatement.setString(6, cliente.getPassword());
+            preparedStatement.setString(7, cliente.getSalt());
             preparedStatement.executeUpdate();
             preparedStatement.close();
         } 
@@ -78,7 +80,7 @@ public class ClienteDAO implements IClienteDAO
             PreparedStatement statement = connection.prepareStatement("UPDATE clientes SET nombre = ?, domicilio = ?, fecha_nacimiento = ?, edad = ? WHERE cliente_id = ?");
             statement.setString(1, cliente.getNombre());
             statement.setString(2, cliente.getDomicilio());
-            statement.setTimestamp(3, cliente.getFechaNacimiento());
+            statement.setDate(3, Date.valueOf(cliente.getFechaNacimiento()));
             statement.setInt(4, cliente.getEdad());
             statement.setInt(5, cliente.getClienteID());
             statement.executeUpdate();

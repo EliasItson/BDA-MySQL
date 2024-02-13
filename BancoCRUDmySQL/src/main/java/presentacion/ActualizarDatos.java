@@ -34,90 +34,91 @@ public class ActualizarDatos extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        userLabel = new javax.swing.JLabel();
-        userLabel1 = new javax.swing.JLabel();
-        userLabel2 = new javax.swing.JLabel();
-        loginBtn = new javax.swing.JButton();
-        loginBtn1 = new javax.swing.JButton();
+        editarDatosPanel = new javax.swing.JPanel();
+        headerLabel = new javax.swing.JLabel();
+        fechaLabel = new javax.swing.JLabel();
+        nombreLabel = new javax.swing.JLabel();
+        actualizarBtn = new javax.swing.JButton();
+        regresarBtn = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
-        userLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        domicilioLabel = new javax.swing.JLabel();
+        nombreTxtField = new javax.swing.JTextField();
+        domicilioTxtField = new javax.swing.JTextField();
+        fechaDateChooser = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(70, 73, 75));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        editarDatosPanel.setBackground(new java.awt.Color(70, 73, 75));
+        editarDatosPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        userLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        userLabel.setForeground(new java.awt.Color(180, 180, 180));
-        userLabel.setText("Editar datos personales");
-        jPanel1.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 260, 30));
+        headerLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        headerLabel.setForeground(new java.awt.Color(180, 180, 180));
+        headerLabel.setText("Editar datos personales");
+        editarDatosPanel.add(headerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 260, 30));
 
-        userLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        userLabel1.setForeground(new java.awt.Color(180, 180, 180));
-        userLabel1.setText("Fecha de Nacimiento:");
-        jPanel1.add(userLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 170, 20));
+        fechaLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        fechaLabel.setForeground(new java.awt.Color(180, 180, 180));
+        fechaLabel.setText("Fecha de Nacimiento:");
+        editarDatosPanel.add(fechaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 170, 20));
 
-        userLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        userLabel2.setForeground(new java.awt.Color(180, 180, 180));
-        userLabel2.setText("Nombre:");
-        jPanel1.add(userLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 140, 20));
+        nombreLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        nombreLabel.setForeground(new java.awt.Color(180, 180, 180));
+        nombreLabel.setText("Nombre:");
+        editarDatosPanel.add(nombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 140, 20));
 
-        loginBtn.setBackground(new java.awt.Color(77, 79, 81));
-        loginBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        loginBtn.setForeground(new java.awt.Color(180, 180, 180));
-        loginBtn.setText("Realizar Transferencia");
-        loginBtn.setToolTipText("");
-        loginBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 102, 104), 2));
-        loginBtn.addActionListener(new java.awt.event.ActionListener() {
+        actualizarBtn.setBackground(new java.awt.Color(77, 79, 81));
+        actualizarBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        actualizarBtn.setForeground(new java.awt.Color(180, 180, 180));
+        actualizarBtn.setText("Actualizar");
+        actualizarBtn.setToolTipText("");
+        actualizarBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 102, 104), 2));
+        actualizarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginBtnActionPerformed(evt);
+                actualizarBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(loginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 160, 30));
+        editarDatosPanel.add(actualizarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 160, 30));
 
-        loginBtn1.setBackground(new java.awt.Color(77, 79, 81));
-        loginBtn1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        loginBtn1.setForeground(new java.awt.Color(180, 180, 180));
-        loginBtn1.setText("Regresar");
-        loginBtn1.setToolTipText("");
-        loginBtn1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 102, 104), 2));
-        loginBtn1.addActionListener(new java.awt.event.ActionListener() {
+        regresarBtn.setBackground(new java.awt.Color(77, 79, 81));
+        regresarBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        regresarBtn.setForeground(new java.awt.Color(180, 180, 180));
+        regresarBtn.setText("Regresar");
+        regresarBtn.setToolTipText("");
+        regresarBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 102, 104), 2));
+        regresarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginBtn1ActionPerformed(evt);
+                regresarBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(loginBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 160, 30));
+        editarDatosPanel.add(regresarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 160, 30));
 
         jSeparator1.setBackground(new java.awt.Color(90, 92, 94));
         jSeparator1.setForeground(new java.awt.Color(120, 122, 124));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 103, 480, 20));
+        editarDatosPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 103, 480, 20));
 
-        userLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        userLabel3.setForeground(new java.awt.Color(180, 180, 180));
-        userLabel3.setText("Domicilio");
-        jPanel1.add(userLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 170, 20));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 220, -1));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 220, -1));
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 220, -1));
+        domicilioLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        domicilioLabel.setForeground(new java.awt.Color(180, 180, 180));
+        domicilioLabel.setText("Domicilio");
+        editarDatosPanel.add(domicilioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 170, 20));
+        editarDatosPanel.add(nombreTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 220, -1));
+        editarDatosPanel.add(domicilioTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 220, -1));
+        editarDatosPanel.add(fechaDateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 220, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 400));
+        getContentPane().add(editarDatosPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 400));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
+    private void actualizarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarBtnActionPerformed
         this.dispose();
-    }//GEN-LAST:event_loginBtnActionPerformed
+    }//GEN-LAST:event_actualizarBtnActionPerformed
 
-    private void loginBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtn1ActionPerformed
+    private void regresarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarBtnActionPerformed
         this.dispose();
-    }//GEN-LAST:event_loginBtn1ActionPerformed
+    }//GEN-LAST:event_regresarBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,16 +170,16 @@ public class ActualizarDatos extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton actualizarBtn;
+    private javax.swing.JLabel domicilioLabel;
+    private javax.swing.JTextField domicilioTxtField;
+    private javax.swing.JPanel editarDatosPanel;
+    private com.toedter.calendar.JDateChooser fechaDateChooser;
+    private javax.swing.JLabel fechaLabel;
+    private javax.swing.JLabel headerLabel;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JButton loginBtn;
-    private javax.swing.JButton loginBtn1;
-    private javax.swing.JLabel userLabel;
-    private javax.swing.JLabel userLabel1;
-    private javax.swing.JLabel userLabel2;
-    private javax.swing.JLabel userLabel3;
+    private javax.swing.JLabel nombreLabel;
+    private javax.swing.JTextField nombreTxtField;
+    private javax.swing.JButton regresarBtn;
     // End of variables declaration//GEN-END:variables
 }

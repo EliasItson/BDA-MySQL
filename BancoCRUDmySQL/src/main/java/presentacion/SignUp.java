@@ -1,20 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package presentacion;
 
-/**
- *
- * @author Ryzen 5
- */
+import dao.ClienteDAO;
+import dao.IClienteDAO;
+import dao.IConexionBD;
+import java.time.ZoneId;
+import javax.swing.JOptionPane;
+import modelos.Cliente;
+import modelos.Credencial;
+import negocio.IClienteNegocio;
+import negocio.NegocioException;
+import org.mindrot.jbcrypt.BCrypt;
+
 public class SignUp extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SignUp
-     */
-    public SignUp() {
+    private IClienteNegocio clienteNegocio;
+    
+    public SignUp(IClienteNegocio clienteNegocio) 
+    {
         initComponents();
+        this.clienteNegocio = clienteNegocio;
         this.setResizable(false);
     }
 
@@ -36,16 +40,17 @@ public class SignUp extends javax.swing.JFrame {
         passLabel = new javax.swing.JLabel();
         nombreTxtField = new javax.swing.JTextField();
         domicilioTxtField = new javax.swing.JTextField();
-        fechaTxtField = new javax.swing.JTextField();
         userTxtField = new javax.swing.JTextField();
         passPassField = new javax.swing.JPasswordField();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator1 = new javax.swing.JSeparator();
         registrarBtn = new javax.swing.JButton();
         cancelarBtn = new javax.swing.JButton();
+        fechaDateChooser = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aplicacion Bancaria");
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         signupPanel.setForeground(new java.awt.Color(60, 63, 65));
@@ -77,7 +82,6 @@ public class SignUp extends javax.swing.JFrame {
         signupPanel.add(passLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 500, -1, 20));
         signupPanel.add(nombreTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 240, -1));
         signupPanel.add(domicilioTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 240, -1));
-        signupPanel.add(fechaTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, 240, -1));
         signupPanel.add(userTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 450, 240, -1));
 
         passPassField.addActionListener(new java.awt.event.ActionListener() {
@@ -107,6 +111,7 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
         signupPanel.add(cancelarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 750, 60, 20));
+        signupPanel.add(fechaDateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, 240, -1));
 
         getContentPane().add(signupPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 800));
 
@@ -119,58 +124,46 @@ public class SignUp extends javax.swing.JFrame {
     }//GEN-LAST:event_passPassFieldActionPerformed
 
     private void registrarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarBtnActionPerformed
-        this.setVisible(false);
-        Login loginObj = new Login();
+        
+        String salt = BCrypt.gensalt();
+        String hashedPassword = BCrypt.hashpw(new String(passPassField.getPassword()), salt);
+        
+        passPassField.setText(null);
+        
+        Cliente cliente = new Cliente(nombreTxtField.getText(), 
+                domicilioTxtField.getText(), 
+                fechaDateChooser.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(),
+                userTxtField.getText(),
+                hashedPassword,
+                salt);
+        
+        try
+        {
+            clienteNegocio.addCliente(cliente);
+        }
+        catch(NegocioException ex)
+        {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Notificacion", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        this.dispose();
+        Login loginObj = new Login(clienteNegocio);
         loginObj.setVisible(true);
     }//GEN-LAST:event_registrarBtnActionPerformed
 
     private void cancelarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBtnActionPerformed
-        this.setVisible(false);
-        Login loginObj = new Login();
+        this.dispose();
+        Login loginObj = new Login(clienteNegocio);
         loginObj.setVisible(true);
     }//GEN-LAST:event_cancelarBtnActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SignUp().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelarBtn;
     private javax.swing.JLabel domicilioLabel;
     private javax.swing.JTextField domicilioTxtField;
+    private com.toedter.calendar.JDateChooser fechaDateChooser;
     private javax.swing.JLabel fechaLabel;
-    private javax.swing.JTextField fechaTxtField;
     private javax.swing.JLabel headerLabel;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;

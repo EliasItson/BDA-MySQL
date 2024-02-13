@@ -34,96 +34,97 @@ public class CancelarCuenta extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        userLabel = new javax.swing.JLabel();
-        userLabel1 = new javax.swing.JLabel();
-        userLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        loginBtn = new javax.swing.JButton();
-        loginBtn1 = new javax.swing.JButton();
+        cancelarCuentaPanel = new javax.swing.JPanel();
+        headerLabel = new javax.swing.JLabel();
+        clienteLabel = new javax.swing.JLabel();
+        noCuentaLabel = new javax.swing.JLabel();
+        saldoLabel = new javax.swing.JLabel();
+        cliente2Label = new javax.swing.JLabel();
+        noCuenta2Label = new javax.swing.JLabel();
+        saldo2Label = new javax.swing.JLabel();
+        regresarBtn = new javax.swing.JButton();
+        cancelarCuentaBtn = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
-        userLabel3 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(70, 73, 75));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        cancelarCuentaPanel.setBackground(new java.awt.Color(70, 73, 75));
+        cancelarCuentaPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        userLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        userLabel.setForeground(new java.awt.Color(180, 180, 180));
-        userLabel.setText("Cancelacion de Cuenta");
-        jPanel1.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 260, 20));
+        headerLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        headerLabel.setForeground(new java.awt.Color(180, 180, 180));
+        headerLabel.setText("Cancelacion de Cuenta");
+        cancelarCuentaPanel.add(headerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 260, 20));
 
-        userLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        userLabel1.setForeground(new java.awt.Color(180, 180, 180));
-        userLabel1.setText("Saldo:");
-        jPanel1.add(userLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 170, 20));
+        clienteLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        clienteLabel.setForeground(new java.awt.Color(180, 180, 180));
+        clienteLabel.setText("Cliente:");
+        cancelarCuentaPanel.add(clienteLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 80, 20));
 
-        userLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        userLabel2.setForeground(new java.awt.Color(180, 180, 180));
-        userLabel2.setText("Cliente:");
-        jPanel1.add(userLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 80, 20));
+        noCuentaLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        noCuentaLabel.setForeground(new java.awt.Color(180, 180, 180));
+        noCuentaLabel.setText("Numero de cuenta:");
+        cancelarCuentaPanel.add(noCuentaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 170, 20));
 
-        jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(80, 83, 85), 1, true));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 220, 20));
+        saldoLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        saldoLabel.setForeground(new java.awt.Color(180, 180, 180));
+        saldoLabel.setText("Saldo:");
+        cancelarCuentaPanel.add(saldoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 170, 20));
 
-        jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(80, 83, 85), 1, true));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 220, 20));
+        cliente2Label.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(80, 83, 85), 1, true));
+        cancelarCuentaPanel.add(cliente2Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 220, 20));
 
-        loginBtn.setBackground(new java.awt.Color(77, 79, 81));
-        loginBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        loginBtn.setForeground(new java.awt.Color(180, 180, 180));
-        loginBtn.setText("Cancelar Cuenta");
-        loginBtn.setToolTipText("");
-        loginBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 102, 104), 2));
-        loginBtn.addActionListener(new java.awt.event.ActionListener() {
+        noCuenta2Label.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(80, 83, 85), 1, true));
+        cancelarCuentaPanel.add(noCuenta2Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 220, 20));
+
+        saldo2Label.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(80, 83, 85), 1, true));
+        cancelarCuentaPanel.add(saldo2Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 220, 20));
+
+        regresarBtn.setBackground(new java.awt.Color(77, 79, 81));
+        regresarBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        regresarBtn.setForeground(new java.awt.Color(180, 180, 180));
+        regresarBtn.setText("Regresar");
+        regresarBtn.setToolTipText("");
+        regresarBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 102, 104), 2));
+        regresarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginBtnActionPerformed(evt);
+                regresarBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(loginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 130, 30));
+        cancelarCuentaPanel.add(regresarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 130, 30));
 
-        loginBtn1.setBackground(new java.awt.Color(77, 79, 81));
-        loginBtn1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        loginBtn1.setForeground(new java.awt.Color(180, 180, 180));
-        loginBtn1.setText("Regresar");
-        loginBtn1.setToolTipText("");
-        loginBtn1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 102, 104), 2));
-        loginBtn1.addActionListener(new java.awt.event.ActionListener() {
+        cancelarCuentaBtn.setBackground(new java.awt.Color(77, 79, 81));
+        cancelarCuentaBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cancelarCuentaBtn.setForeground(new java.awt.Color(180, 180, 180));
+        cancelarCuentaBtn.setText("Cancelar Cuenta");
+        cancelarCuentaBtn.setToolTipText("");
+        cancelarCuentaBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 102, 104), 2));
+        cancelarCuentaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginBtn1ActionPerformed(evt);
+                cancelarCuentaBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(loginBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 130, 30));
+        cancelarCuentaPanel.add(cancelarCuentaBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 130, 30));
 
         jSeparator1.setBackground(new java.awt.Color(90, 92, 94));
         jSeparator1.setForeground(new java.awt.Color(120, 122, 124));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 103, 480, 20));
+        cancelarCuentaPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 103, 480, 20));
 
-        userLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        userLabel3.setForeground(new java.awt.Color(180, 180, 180));
-        userLabel3.setText("Numero de cuenta:");
-        jPanel1.add(userLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 170, 20));
-
-        jLabel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(80, 83, 85), 1, true));
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 220, 20));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 400));
+        getContentPane().add(cancelarCuentaPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 400));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
+    private void cancelarCuentaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarCuentaBtnActionPerformed
         this.dispose();
-    }//GEN-LAST:event_loginBtnActionPerformed
+    }//GEN-LAST:event_cancelarCuentaBtnActionPerformed
 
-    private void loginBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtn1ActionPerformed
+    private void regresarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarBtnActionPerformed
         this.dispose();
-    }//GEN-LAST:event_loginBtn1ActionPerformed
+    }//GEN-LAST:event_regresarBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,16 +170,16 @@ public class CancelarCuenta extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton cancelarCuentaBtn;
+    private javax.swing.JPanel cancelarCuentaPanel;
+    private javax.swing.JLabel cliente2Label;
+    private javax.swing.JLabel clienteLabel;
+    private javax.swing.JLabel headerLabel;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JButton loginBtn;
-    private javax.swing.JButton loginBtn1;
-    private javax.swing.JLabel userLabel;
-    private javax.swing.JLabel userLabel1;
-    private javax.swing.JLabel userLabel2;
-    private javax.swing.JLabel userLabel3;
+    private javax.swing.JLabel noCuenta2Label;
+    private javax.swing.JLabel noCuentaLabel;
+    private javax.swing.JButton regresarBtn;
+    private javax.swing.JLabel saldo2Label;
+    private javax.swing.JLabel saldoLabel;
     // End of variables declaration//GEN-END:variables
 }
