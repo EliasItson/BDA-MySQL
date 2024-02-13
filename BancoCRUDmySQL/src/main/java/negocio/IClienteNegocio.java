@@ -5,6 +5,7 @@ import modelos.Cliente;
 
 public interface IClienteNegocio 
 {
-    public List<Cliente> buscarClientesTabla() throws NegocioException;
+    public List<Cliente> getAllClientes() throws NegocioException;
+    public Cliente getClienteByUser(String user) throws NegocioException;
     public void addCliente(Cliente cliente) throws NegocioException;
 }

@@ -8,6 +8,9 @@ import modelos.Cliente;
 public class ClienteDAO implements IClienteDAO
 {
     private IConexionBD conexion;
+     Connection connection;
+     PreparedStatement preparedStatement;
+     ResultSet resultSet;
 
     public ClienteDAO(IConexionBD conexion) 
     {
@@ -20,9 +23,10 @@ public class ClienteDAO implements IClienteDAO
         List<Cliente> clientes = new ArrayList<>();
         try 
         {
-            Connection connection = this.conexion.crearConexion();
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM clientes");
+            String sqlQuery = "SELECT * FROM clientes";
+            connection = this.conexion.crearConexion();
+            preparedStatement = connection.prepareStatement(sqlQuery);
+            resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) 
             {
@@ -38,7 +42,7 @@ public class ClienteDAO implements IClienteDAO
             }
 
             resultSet.close();
-            statement.close();
+            preparedStatement.close();
         } 
         catch (SQLException e) 
         {
@@ -46,6 +50,62 @@ public class ClienteDAO implements IClienteDAO
         }
         return clientes;
     }
+    
+    @Override
+    public Cliente getClienteByUser(String user) throws DAOException
+    {
+        Cliente c = new Cliente();
+        try 
+        {
+            connection = this.conexion.crearConexion();
+            // SQL query to retrieve user by username
+            String sqlQuery = "SELECT * FROM clientes WHERE user = ?";
+            preparedStatement = connection.prepareStatement(sqlQuery);
+            preparedStatement.setString(1, user);
+
+            // Execute the query
+            resultSet = preparedStatement.executeQuery();
+            
+            Cliente cliente = new Cliente();
+            
+            // Process the result set
+            while (resultSet.next()) 
+            {
+                // Retrieve values from the result set
+                cliente.setClienteID(resultSet.getInt("cliente_id"));
+                cliente.setNombre(resultSet.getString("nombre"));
+                cliente.setDomicilio(resultSet.getString("domicilio"));
+                cliente.setFechaNacimiento(resultSet.getDate("fecha_nacimiento").toLocalDate());
+                cliente.setEdad(resultSet.getInt("edad"));
+                cliente.setUser(resultSet.getString("user"));
+                cliente.setPassword(resultSet.getString("password"));
+                cliente.setSalt(resultSet.getString("salt"));
+                cliente.setIsDeleted(resultSet.getBoolean("is_deleted"));
+            }
+            return cliente;
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            throw new DAOException("Ocurrió un error al leer la base de datos, inténtelo de nuevo y si el error persiste comuníquese con el encargado del sistema.");
+        } 
+        finally 
+        {
+            // Close resources in the reverse order of their creation
+            try 
+            {
+                if (resultSet != null) resultSet.close();
+                if (preparedStatement != null) preparedStatement.close();
+                if (connection != null) connection.close();
+            } 
+            catch (SQLException ex) 
+            {
+                ex.printStackTrace();
+                throw new DAOException("Ocurrió un error al cerrar los recursos de JDBC.");
+            }
+        }
+    }
+    
     
     @Override
     public void addCliente(Cliente cliente) 
@@ -77,13 +137,13 @@ public class ClienteDAO implements IClienteDAO
         try
         {
             Connection connection = this.conexion.crearConexion();
-            PreparedStatement statement = connection.prepareStatement("UPDATE clientes SET nombre = ?, domicilio = ?, fecha_nacimiento = ?, edad = ? WHERE cliente_id = ?");
-            statement.setString(1, cliente.getNombre());
-            statement.setString(2, cliente.getDomicilio());
-            statement.setDate(3, Date.valueOf(cliente.getFechaNacimiento()));
-            statement.setInt(4, cliente.getEdad());
-            statement.setInt(5, cliente.getClienteID());
-            statement.executeUpdate();
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE clientes SET nombre = ?, domicilio = ?, fecha_nacimiento = ?, edad = ? WHERE cliente_id = ?");
+            preparedStatement.setString(1, cliente.getNombre());
+            preparedStatement.setString(2, cliente.getDomicilio());
+            preparedStatement.setDate(3, Date.valueOf(cliente.getFechaNacimiento()));
+            preparedStatement.setInt(4, cliente.getEdad());
+            preparedStatement.setInt(5, cliente.getClienteID());
+            preparedStatement.executeUpdate();
         } 
         catch (SQLException e) 
         {

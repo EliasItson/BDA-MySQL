@@ -1,21 +1,28 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package presentacion;
 import javax.swing.JDialog;
+import modelos.Cliente;
+import negocio.*;
 
-/**
- *
- * @author Ryzen 5
- */
 public class Menu extends javax.swing.JFrame {
 
     /**
      * Creates new form Menu
      */
-    public Menu() {
+    private IClienteNegocio clienteNegocio;
+    private Cliente cliente;
+    
+    public Menu() 
+    {
         initComponents();
+        
+        this.setResizable(false);
+    }
+    
+    public Menu(IClienteNegocio clienteNegocio, Cliente cliente) 
+    {
+        initComponents();
+        this.clienteNegocio = clienteNegocio;
+        this.cliente = cliente;
         this.setResizable(false);
     }
 

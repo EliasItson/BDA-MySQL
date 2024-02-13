@@ -17,7 +17,7 @@ public class ClienteNegocio implements IClienteNegocio
     }
     
     @Override
-    public List<Cliente> buscarClientesTabla() throws NegocioException
+    public List<Cliente> getAllClientes() throws NegocioException
     {
         try 
         {
@@ -28,6 +28,26 @@ public class ClienteNegocio implements IClienteNegocio
             }
 
             return clientes;
+        } 
+        catch (DAOException ex) 
+        {
+            System.out.println(ex.getMessage());
+            throw new NegocioException(ex.getMessage());
+        }
+    }
+    
+    @Override
+    public Cliente getClienteByUser(String user) throws NegocioException
+    {
+        try 
+        {
+            if (user == null)
+            {
+                throw new NegocioException("El campo usuario no puede estar vacio.");
+            }
+            
+            Cliente cliente = clienteDAO.getClienteByUser(user);
+            return cliente;
         } 
         catch (DAOException ex) 
         {
