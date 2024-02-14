@@ -66,24 +66,31 @@ public class Menu extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        menuPanel.setBackground(new java.awt.Color(70, 73, 75));
         menuPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         menuPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         headerLabel.setFont(new java.awt.Font("Segoe UI", 0, 68)); // NOI18N
+        headerLabel.setForeground(new java.awt.Color(180, 180, 180));
         headerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headerLabel.setText("Menu");
         menuPanel.add(headerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 620, 130));
 
         tableHeaderLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        tableHeaderLabel.setForeground(new java.awt.Color(180, 180, 180));
         tableHeaderLabel.setText("Cuentas");
         menuPanel.add(tableHeaderLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 70, 20));
 
         clienteLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        clienteLabel.setForeground(new java.awt.Color(180, 180, 180));
         clienteLabel.setText("Cliente");
         menuPanel.add(clienteLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 240, 70, 20));
 
         cuentasTableScrollPane.setBorder(null);
 
+        cuentasTable.setBackground(new java.awt.Color(71, 73, 76));
+        cuentasTable.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 102, 104), 1, true));
+        cuentasTable.setForeground(new java.awt.Color(180, 180, 180));
         cuentasTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -93,7 +100,7 @@ public class Menu extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Long.class, java.lang.Double.class, java.lang.String.class
+                java.lang.String.class, java.lang.Double.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false
@@ -118,12 +125,24 @@ public class Menu extends javax.swing.JFrame {
 
         menuPanel.add(cuentasTableScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, -1, 300));
 
-        perInfoPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        perInfoPanel.setBackground(new java.awt.Color(70, 73, 75));
+        perInfoPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(100, 102, 104))); // NOI18N
 
-        domicilioTxtArea.setBackground(new java.awt.Color(60, 63, 65));
+        nombreLabel.setBackground(new java.awt.Color(70, 73, 75));
+        nombreLabel.setForeground(new java.awt.Color(180, 180, 180));
+
+        domicilioTxtArea.setEditable(false);
+        domicilioTxtArea.setBackground(new java.awt.Color(71, 74, 76));
         domicilioTxtArea.setColumns(20);
+        domicilioTxtArea.setForeground(new java.awt.Color(180, 180, 180));
         domicilioTxtArea.setRows(5);
         domicilioTxtArea.setText("\n");
+
+        fechaLabel.setBackground(new java.awt.Color(70, 73, 75));
+        fechaLabel.setForeground(new java.awt.Color(180, 180, 180));
+
+        fechaLabel1.setBackground(new java.awt.Color(70, 73, 75));
+        fechaLabel1.setForeground(new java.awt.Color(180, 180, 180));
 
         javax.swing.GroupLayout perInfoPanelLayout = new javax.swing.GroupLayout(perInfoPanel);
         perInfoPanel.setLayout(perInfoPanelLayout);
@@ -133,10 +152,9 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(perInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(fechaLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(perInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(domicilioTxtArea)
-                        .addComponent(nombreLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(fechaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(domicilioTxtArea, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nombreLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(fechaLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         perInfoPanelLayout.setVerticalGroup(
@@ -154,45 +172,59 @@ public class Menu extends javax.swing.JFrame {
         );
 
         menuPanel.add(perInfoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, 290, 210));
+
+        jSeparator2.setBackground(new java.awt.Color(90, 92, 94));
+        jSeparator2.setForeground(new java.awt.Color(120, 122, 124));
         menuPanel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 203, 800, 10));
 
+        jSeparator1.setBackground(new java.awt.Color(90, 92, 94));
+        jSeparator1.setForeground(new java.awt.Color(120, 122, 124));
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         menuPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, 20, 260));
 
+        transfBtn.setForeground(new java.awt.Color(180, 180, 180));
         transfBtn.setText("Transferencia");
+        transfBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 102, 104), 1, true));
         transfBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 transfBtnActionPerformed(evt);
             }
         });
-        menuPanel.add(transfBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 640, 120, -1));
+        menuPanel.add(transfBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 640, 120, 30));
 
+        newCuentaBtn.setForeground(new java.awt.Color(180, 180, 180));
         newCuentaBtn.setText("Abrir Cuenta");
+        newCuentaBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 102, 104), 2, true));
         newCuentaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newCuentaBtnActionPerformed(evt);
             }
         });
-        menuPanel.add(newCuentaBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 600, 120, -1));
+        menuPanel.add(newCuentaBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 600, 120, 30));
 
+        cancelCuentaBtn.setForeground(new java.awt.Color(180, 180, 180));
         cancelCuentaBtn.setText("Cancelar Cuenta");
+        cancelCuentaBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 102, 104), 1, true));
         cancelCuentaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelCuentaBtnActionPerformed(evt);
             }
         });
-        menuPanel.add(cancelCuentaBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 600, 120, -1));
+        menuPanel.add(cancelCuentaBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 600, 120, 30));
 
+        depositoBtn.setForeground(new java.awt.Color(180, 180, 180));
         depositoBtn.setText("Deposito");
+        depositoBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 102, 104), 1, true));
         depositoBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 depositoBtnActionPerformed(evt);
             }
         });
-        menuPanel.add(depositoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 640, 120, -1));
+        menuPanel.add(depositoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 640, 120, 30));
 
-        updateInfoBtn.setBackground(new java.awt.Color(60, 63, 65));
+        updateInfoBtn.setBackground(new java.awt.Color(70, 73, 75));
         updateInfoBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        updateInfoBtn.setForeground(new java.awt.Color(180, 180, 180));
         updateInfoBtn.setText("Editar informacion personal");
         updateInfoBtn.setBorder(null);
         updateInfoBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -237,7 +269,8 @@ public class Menu extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) 
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -245,7 +278,7 @@ public class Menu extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("FlatLaf Dark".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -260,14 +293,16 @@ public class Menu extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Menu().setVisible(true);
             }
         });
     }
+        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelCuentaBtn;

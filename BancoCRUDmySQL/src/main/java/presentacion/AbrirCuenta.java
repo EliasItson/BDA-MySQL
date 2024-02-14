@@ -71,9 +71,11 @@ public class AbrirCuenta extends javax.swing.JDialog {
         noCuentaLabel.setText("Numero de cuenta:");
         abrirCuentaPanel.add(noCuentaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 170, 20));
 
+        cliente2Label.setForeground(new java.awt.Color(180, 180, 180));
         cliente2Label.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(80, 83, 85), 1, true));
         abrirCuentaPanel.add(cliente2Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 220, 20));
 
+        noCuenta2Label.setForeground(new java.awt.Color(180, 180, 180));
         noCuenta2Label.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(80, 83, 85), 1, true));
         abrirCuentaPanel.add(noCuenta2Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 220, 20));
 
@@ -180,7 +182,20 @@ public class AbrirCuenta extends javax.swing.JDialog {
         }
         //</editor-fold>
 
-
+        /* Create and display the dialog */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                AbrirCuenta dialog = new AbrirCuenta(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton abrirCuentaBtn;
