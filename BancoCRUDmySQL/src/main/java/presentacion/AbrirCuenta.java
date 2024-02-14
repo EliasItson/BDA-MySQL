@@ -1,27 +1,32 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
- */
 package presentacion;
 
-/**
- *
- * @author Ryzen 5
- */
+import java.util.Random;
+import javax.swing.JOptionPane;
+import modelos.Cliente;
+import modelos.Cuenta;
+import negocio.*;
+
 public class AbrirCuenta extends javax.swing.JDialog {
 
-    /**
-     * Creates new form AbrirCuenta
-     */
-    public AbrirCuenta(java.awt.Frame parent, boolean modal) {
+    private ICuentaNegocio cuentaNegocio;
+    private Cliente cliente;
+    private long numeroCuenta;
+    
+    public AbrirCuenta(java.awt.Frame parent, boolean modal) 
+    {
         super(parent, modal);
         initComponents();
         this.setResizable(false);
     }
     
-    public AbrirCuenta(java.awt.Frame parent, String title, boolean modal) {
+    public AbrirCuenta(java.awt.Frame parent, String title, boolean modal, ICuentaNegocio cuentaNegocio, Cliente cliente) 
+    {
         super(parent, title, modal);
         initComponents();
+        this.cuentaNegocio = cuentaNegocio;
+        this.cliente = cliente;
+        this.numeroCuenta = generateNumeroCuenta();
+        fillFields();
         this.setResizable(false);
     }
 
@@ -108,7 +113,39 @@ public class AbrirCuenta extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    public void fillFields()
+    {
+        cliente2Label.setText(cliente.getNombre());
+        noCuenta2Label.setText(String.valueOf(numeroCuenta));
+    }
+    
+    private long generateNumeroCuenta()
+    {
+        Random random = new Random();
+
+        // Generate a random 10-digit integer
+        long lowerBound = 100_000_0000L;   // Minimum 10-digit number
+        long upperBound = 999_999_9999L;   // Maximum 10-digit number
+        long randomTenDigitNumber = lowerBound + (long) (random.nextDouble() 
+                * (upperBound - lowerBound + 1));
+        
+        return randomTenDigitNumber;
+    }
+    
     private void abrirCuentaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abrirCuentaBtnActionPerformed
+        try
+        {
+            Cuenta cuenta = new Cuenta();
+            cuenta.setCliente(cliente.getClienteID());
+            cuenta.setNumeroCuenta(String.valueOf(numeroCuenta));
+            
+            cuentaNegocio.addCuenta(cuenta);
+            
+        }
+        catch(NegocioException ex)
+        {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Notificacion", JOptionPane.ERROR_MESSAGE);
+        }
         this.dispose();
     }//GEN-LAST:event_abrirCuentaBtnActionPerformed
 
@@ -143,20 +180,7 @@ public class AbrirCuenta extends javax.swing.JDialog {
         }
         //</editor-fold>
 
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                AbrirCuenta dialog = new AbrirCuenta(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton abrirCuentaBtn;

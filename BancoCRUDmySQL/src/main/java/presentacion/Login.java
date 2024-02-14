@@ -11,11 +11,13 @@ public class Login extends javax.swing.JFrame {
      * Creates new form MainFrame
      */
     private IClienteNegocio clienteNegocio;
+    private ICuentaNegocio cuentaNegocio;
     
-    public Login(IClienteNegocio clienteNegocio) 
+    public Login(IClienteNegocio clienteNegocio, ICuentaNegocio cuentaNegocio) 
     {
         initComponents();
         this.clienteNegocio = clienteNegocio;
+        this.cuentaNegocio = cuentaNegocio;
         this.setResizable(false);
     }
 
@@ -124,7 +126,7 @@ public class Login extends javax.swing.JFrame {
                 
                 
                 this.dispose();
-                Menu menuObj = new Menu(clienteNegocio, cliente);
+                Menu menuObj = new Menu(clienteNegocio, cliente, cuentaNegocio);
                 menuObj.setVisible(true);
             } 
             else 
@@ -147,7 +149,7 @@ public class Login extends javax.swing.JFrame {
 
     private void signupBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupBtnActionPerformed
         this.dispose();
-        SignUp signupObj = new SignUp(clienteNegocio);
+        SignUp signupObj = new SignUp(clienteNegocio, cuentaNegocio);
         signupObj.setVisible(true);
     }//GEN-LAST:event_signupBtnActionPerformed
 

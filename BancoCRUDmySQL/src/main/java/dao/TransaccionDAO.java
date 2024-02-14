@@ -3,21 +3,21 @@ package dao;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import modelos.Operacion;
+import modelos.Transaccion;
 
-public class OperacionDAO implements IOperacionDAO
+public class TransaccionDAO implements ITransaccionDAO
 {
     private IConexionBD conexion;
 
-    public OperacionDAO(IConexionBD conexion) 
+    public TransaccionDAO(IConexionBD conexion) 
     {
         this.conexion = conexion;
     }
     
     @Override
-    public List<Operacion> getAllOperaciones() 
+    public List<Transaccion> getAllTransacciones() 
     {
-        List<Operacion> operaciones = new ArrayList<>();
+        List<Transaccion> operaciones = new ArrayList<>();
         try 
         {
             Connection connection = this.conexion.crearConexion();
@@ -26,11 +26,11 @@ public class OperacionDAO implements IOperacionDAO
 
             while (resultSet.next()) 
             {
-                Operacion operacion = new Operacion();
-                operacion.setOperacionID(resultSet.getInt("operacion_id"));
+                Transaccion operacion = new Transaccion();
+                operacion.setTransaccionID(resultSet.getInt("operacion_id"));
                 operacion.setCliente(resultSet.getInt("cliente"));
-                operacion.setTipoOperacion(resultSet.getString("tipo_operacion"));
-                operacion.setFechaOperacion(resultSet.getTimestamp("fecha_operacion"));
+                operacion.setTipTransaccion(resultSet.getString("tipo_operacion"));
+                operacion.setFechaTransaccion(resultSet.getTimestamp("fecha_operacion"));
                 operacion.setIsDeleted(resultSet.getBoolean("is_deleted"));
                 
                 operaciones.add(operacion);
@@ -47,7 +47,7 @@ public class OperacionDAO implements IOperacionDAO
     }
     
     @Override
-    public void addOperacion(Operacion operacion) 
+    public void addTransaccion(Transaccion operacion) 
     {
         try 
         {
@@ -56,8 +56,8 @@ public class OperacionDAO implements IOperacionDAO
                 "INSERT INTO operacion (cliente, tipo_operacion, fecha_operacion) VALUES (?, ?, ?)"
             );
             preparedStatement.setInt(1, operacion.getCliente());
-            preparedStatement.setString(2, operacion.getTipoOperacion());
-            preparedStatement.setTimestamp(3, operacion.getFechaOperacion());
+            preparedStatement.setString(2, operacion.getTipTransaccion());
+            preparedStatement.setTimestamp(3, operacion.getFechaTransaccion());
             preparedStatement.executeUpdate();
             preparedStatement.close();
         } 
@@ -68,16 +68,16 @@ public class OperacionDAO implements IOperacionDAO
     }
     
     @Override
-    public void updateOperacion(Operacion operacion) 
+    public void updateTransaccion(Transaccion operacion) 
     {
         try
         {
             Connection connection = this.conexion.crearConexion();
             PreparedStatement statement = connection.prepareStatement("UPDATE operaciones SET cliente = ?, tipo_operacion = ?, fecha_operacion = ? WHERE operacion_id = ?");
             statement.setInt(1, operacion.getCliente());
-            statement.setString(2, operacion.getTipoOperacion());
-            statement.setTimestamp(3, operacion.getFechaOperacion());
-            statement.setInt(5, operacion.getOperacionID());
+            statement.setString(2, operacion.getTipTransaccion());
+            statement.setTimestamp(3, operacion.getFechaTransaccion());
+            statement.setInt(5, operacion.getTransaccionID());
             statement.executeUpdate();
         } 
         catch (SQLException e) 
@@ -87,7 +87,7 @@ public class OperacionDAO implements IOperacionDAO
     }
     
     @Override
-    public void deleteOperacion(int operacionID) 
+    public void deleteTransaccion(int operacionID) 
     {
         try
         {

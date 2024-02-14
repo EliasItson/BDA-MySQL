@@ -5,8 +5,7 @@ import modelos.Cuenta;
 
 public interface ICuentaDAO 
 {
-    public List<Cuenta> getAllCuentas();
-    public void addCuenta(Cuenta cuenta);
-    public void updateCuenta(Cuenta cuenta);
-    public void deleteCuenta(int cuentaID);
+    public List<Cuenta> getAllCuentas() throws DAOException;
+    public Cuenta getCuentasByClienteID(int clienteID) throws DAOException;
+    public void addCuenta(Cuenta cuenta) throws DAOException;
 }

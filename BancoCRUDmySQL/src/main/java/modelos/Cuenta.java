@@ -6,7 +6,7 @@ public class Cuenta
 {
     private int cuentaID;
     private int cliente;
-    private int numeroCuenta;
+    private String numeroCuenta;
     private double saldo;
     private Timestamp fechaApertura;
     private boolean isDeleted;
@@ -27,11 +27,11 @@ public class Cuenta
         this.cliente = cliente;
     }
 
-    public int getNumeroCuenta() {
+    public String getNumeroCuenta() {
         return numeroCuenta;
     }
 
-    public void setNumeroCuenta(int numeroCuenta) {
+    public void setNumeroCuenta(String numeroCuenta) {
         this.numeroCuenta = numeroCuenta;
     }
 

@@ -9,6 +9,7 @@ public class Menu extends javax.swing.JFrame {
      * Creates new form Menu
      */
     private IClienteNegocio clienteNegocio;
+    private ICuentaNegocio cuentaNegocio;
     private Cliente cliente;
     
     public Menu() 
@@ -18,12 +19,18 @@ public class Menu extends javax.swing.JFrame {
         this.setResizable(false);
     }
     
-    public Menu(IClienteNegocio clienteNegocio, Cliente cliente) 
+    public Menu(IClienteNegocio clienteNegocio, Cliente cliente, ICuentaNegocio cuentaNegocio) 
     {
         initComponents();
         this.clienteNegocio = clienteNegocio;
         this.cliente = cliente;
+        this.cuentaNegocio = cuentaNegocio;
         this.setResizable(false);
+    }
+    
+    private void runFirst()
+    {
+        
     }
 
     /**
@@ -207,7 +214,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_transfBtnActionPerformed
 
     private void newCuentaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCuentaBtnActionPerformed
-        JDialog abrirCuenta = new AbrirCuenta(this, "Abrir Cuenta Nueva", true);
+        JDialog abrirCuenta = new AbrirCuenta(this, "Abrir Cuenta Nueva", true, cuentaNegocio, cliente);
         abrirCuenta.setVisible(true);
         
     }//GEN-LAST:event_newCuentaBtnActionPerformed

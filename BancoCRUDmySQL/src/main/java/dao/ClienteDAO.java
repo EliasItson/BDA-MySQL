@@ -8,9 +8,9 @@ import modelos.Cliente;
 public class ClienteDAO implements IClienteDAO
 {
     private IConexionBD conexion;
-     Connection connection;
-     PreparedStatement preparedStatement;
-     ResultSet resultSet;
+    Connection connection;
+    PreparedStatement preparedStatement;
+    ResultSet resultSet;
 
     public ClienteDAO(IConexionBD conexion) 
     {

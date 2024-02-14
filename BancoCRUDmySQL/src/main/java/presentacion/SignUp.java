@@ -1,24 +1,23 @@
 package presentacion;
 
-import dao.ClienteDAO;
-import dao.IClienteDAO;
-import dao.IConexionBD;
 import java.time.ZoneId;
 import javax.swing.JOptionPane;
 import modelos.Cliente;
-import modelos.Credencial;
 import negocio.IClienteNegocio;
+import negocio.ICuentaNegocio;
 import negocio.NegocioException;
 import org.mindrot.jbcrypt.BCrypt;
 
 public class SignUp extends javax.swing.JFrame {
 
     private IClienteNegocio clienteNegocio;
+    private ICuentaNegocio cuentaNegocio;
     
-    public SignUp(IClienteNegocio clienteNegocio) 
+    public SignUp(IClienteNegocio clienteNegocio, ICuentaNegocio cuentaNegocio) 
     {
         initComponents();
         this.clienteNegocio = clienteNegocio;
+        this.cuentaNegocio = cuentaNegocio;
         this.setResizable(false);
     }
 
@@ -147,13 +146,13 @@ public class SignUp extends javax.swing.JFrame {
         }
         
         this.dispose();
-        Login loginObj = new Login(clienteNegocio);
+        Login loginObj = new Login(clienteNegocio, cuentaNegocio);
         loginObj.setVisible(true);
     }//GEN-LAST:event_registrarBtnActionPerformed
 
     private void cancelarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBtnActionPerformed
         this.dispose();
-        Login loginObj = new Login(clienteNegocio);
+        Login loginObj = new Login(clienteNegocio, cuentaNegocio);
         loginObj.setVisible(true);
     }//GEN-LAST:event_cancelarBtnActionPerformed
 
